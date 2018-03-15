@@ -7,7 +7,7 @@ script:
     - $CXX --version
     - mkdir _build
     - cd _build && cmake ..
-    - make -C _build pcc_raun
+    - make -C _build pcc_run
 
 notifications:
   email:
