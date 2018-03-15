@@ -2,7 +2,9 @@ language: cpp
 
 
 script:
-    - ls /usr/bin
+    - ls /usr/local
+    - ls /usr/local/clang-5.0.0/bin
+    - $CXX --version
     - mkdir _build
     - cd _build && cmake ..
     - make -C _build pcc_raun
