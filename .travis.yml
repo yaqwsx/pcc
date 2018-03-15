@@ -21,14 +21,15 @@ sudo: false
 
 matrix:
   include:
-    - addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - cmake
-            - g++-7
       env:
         - T_CC=gcc-7 T_CXX=g++-7
     - env:
         - T_CC=/usr/local/clang-5.0.0/bin/clang T_CXX=/usr/local/clang-5.0.0/bin/clang++
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - cmake
+      - g++-7
