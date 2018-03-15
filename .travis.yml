@@ -9,7 +9,7 @@ script:
     - ls /usr/include/c++
     - mkdir _build
     - cd _build
-    - cmake .. -DCMAKE_CXX_FLAGS=$CXXFLAGS
+    - cmake .. -DCMAKE_CXX_FLAGS="$CXXFLAGS"
     - make pcc_run
 
 notifications:
