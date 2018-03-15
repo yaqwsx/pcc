@@ -4,8 +4,8 @@ language: cpp
 script:
     - ls /usr/bin
     - mkdir _build
-    - cd _build && cmake .. -G Ninja
-    - ninja -C _build pcc_run
+    - cd _build && cmake ..
+    - make -C _build pcc_raun
 
 notifications:
   email:
@@ -24,7 +24,6 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - cmake
-            - ninja
             - g++-7
       env:
         - CC=gcc-7 CXX=g++-7
