@@ -5,6 +5,7 @@ script:
     - CXX=$T_CXX
     - CC=$T_CC
     - $CXX --version
+    - which $CXX
     - mkdir _build
     - cd _build
     - cmake ..
