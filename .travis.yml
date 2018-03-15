@@ -1,0 +1,27 @@
+language: cpp
+
+env:
+    - CC=gcc-7 CXX=g++-7
+
+script:
+    - mkdir _build
+    - cd _build && cmake .. -G Ninja
+    - ninja -C _build pcc_run
+
+notifications:
+  email:
+    recipients:
+      - xstill@fi.muni.cz
+    on_success: change # default: change
+    on_failure: always # default: always
+
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - cmake
+      - ninja
+      - g++-7
