@@ -6,6 +6,7 @@ script:
     - CC=$T_CC
     - $CXX --version
     - which $CXX
+    - ls /usr/include/c++
     - mkdir _build
     - cd _build
     - cmake ..
