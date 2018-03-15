@@ -6,7 +6,7 @@ script:
     - ls /usr/local/clang-5.0.0/bin
     - $CXX --version
     - mkdir _build
-    - cd _build && cmake ..
+    - cd _build && CXX=$T_CXX CC=$T_CC cmake ..
     - make -C _build pcc_run
 
 notifications:
@@ -28,6 +28,6 @@ matrix:
             - cmake
             - g++-7
       env:
-        - CC=gcc-7 CXX=g++-7
+        - T_CC=gcc-7 T_CXX=g++-7
     - env:
-        - CC=/usr/local/clang-5.0.0/bin/clang CXX=/usr/local/clang-5.0.0/bin/clang++
+        - T_CC=/usr/local/clang-5.0.0/bin/clang T_CXX=/usr/local/clang-5.0.0/bin/clang++
