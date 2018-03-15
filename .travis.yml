@@ -9,7 +9,7 @@ script:
     - ls /usr/include/c++
     - mkdir _build
     - cd _build
-    - cmake ..
+    - cmake .. -DCMAKE_CXX_FLAGS=$CXXFLAGS
     - make pcc_run
 
 notifications:
@@ -24,9 +24,12 @@ sudo: false
 matrix:
   include:
       env:
-        - T_CC=gcc-7 T_CXX=g++-7
+        - T_CC=gcc-7
+        - T_CXX=g++-7
     - env:
-        - T_CC=/usr/local/clang-5.0.0/bin/clang T_CXX=/usr/local/clang-5.0.0/bin/clang++
+        - T_CC=/usr/local/clang-5.0.0/bin/clang
+        - T_CXX=/usr/local/clang-5.0.0/bin/clang++
+        - CXXFLAGS="-system /usr/include/c++/7.*"
 
 addons:
   apt:
