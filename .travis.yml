@@ -1,9 +1,8 @@
 language: cpp
 
-env:
-    - CC=gcc-7 CXX=g++-7
 
 script:
+    - ls /usr/bin
     - mkdir _build
     - cd _build && cmake .. -G Ninja
     - ninja -C _build pcc_run
@@ -17,11 +16,17 @@ notifications:
 
 sudo: false
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - cmake
-      - ninja
-      - g++-7
+matrix:
+  include:
+    - addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - cmake
+            - ninja
+            - g++-7
+      env:
+        - CC=gcc-7 CXX=g++-7
+    - env:
+        - CC=/usr/local/clang-5.0.0/bin/clang CXX=/usr/local/clang-5.0.0/bin/clang++
