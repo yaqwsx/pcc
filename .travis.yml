@@ -29,7 +29,7 @@ matrix:
     - env:
         - T_CC=/usr/local/clang-5.0.0/bin/clang
         - T_CXX=/usr/local/clang-5.0.0/bin/clang++
-        - CXXFLAGS="-system /usr/include/c++/7.*"
+        - CXXFLAGS="-isystem /usr/include/c++/7.*"
 
 addons:
   apt:
