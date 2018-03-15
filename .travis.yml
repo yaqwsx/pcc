@@ -23,7 +23,7 @@ sudo: false
 
 matrix:
   include:
-      env:
+    - env:
         - T_CC=gcc-7
         - T_CXX=g++-7
     - env:
